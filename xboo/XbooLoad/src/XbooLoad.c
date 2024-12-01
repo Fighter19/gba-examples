@@ -27,6 +27,11 @@ void LoadPic(void) {
 //---------------------------------------------------------------------------------
 	int handle = dfopen("data\\splash.pcx","rb");
 
+	if (handle == -1) {
+		dprintf("Failed to open data\\splash.pcx");
+		return;
+	}
+
 	dfseek(handle,0,SEEK_END);
 	u32 size = dftell(handle);
 	dprintf("File size is %d\n",size);
